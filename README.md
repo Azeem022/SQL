@@ -1,105 +1,98 @@
-use college;  /* which  schema we are working */
+[10:35 pm, 16/9/2024] Azeem Saifi: CREATE DATABASE college_1;
+USE college_1;
 
-create table student (                       /* table creation*/
-id int primary key not null,
-name varchar(100),
-rollno int unique ,
-course varchar(100) 
+CREATE TABLE student_1(
+Roll_no numeric,
+Name CHAR(20),
+age INT,
+address VARCHAR(30),
+date_of_birth DATE,
+contact_no NUMERIC(10));
+
+DESC student_1;
+
+INSERT INTO student_1
+(Roll_no, Name, age, address, date_of_birth, contact_no)
+values
+(01, "Aaditya", 12 ,"Moradabad","2004-01-01",9084353600);
+INSERT INTO student_1
+(Roll_no, Name, age, address, date_of_birth, contact_no)
+values
+(01, "Aaditi", 15 ,"Delhi","2008-02-18",9084353611);
+INSERT INTO student_1
+(Roll_no, Name, age, address, date_of_birth)
+values
+(02, "Aaditi", 17 ,"Moradabad","2004-01-08");
+INSERT INTO student_1
+(Roll_no, Name, age, address, date_of_birth, contact_no)
+values
+(01, "Aaditya", 17 ,"Moradabad","2004-01-01",9084353600);
+INSERT INTO student_1
+(Roll_no, Name, age, address, date_of_birth, contact_no)
+values
+(05, "Azeem", 17 ,"Amroha","2004-04-04",9084353645);
+
+SELECT * FROM student_1;
+[12:07 am, 17/9/2024] Azeem Saifi: CREATE TABLE student_2(
+Roll_no INT PRIMARY KEY,
+Name  VARCHAR(20) NOT NULL,
+Age INT Check(Age>=18),
+Address VARCHAR(30),
+Date_Of_Birth DATE,
+Contact_no NUMERIC(10) UNIQUE
 );
 
-select * from student ;           /* Display the table data  */
+DESC student_2;
 
-Insert into student(id ,name , rollno , course )values (1 , "zubair" , 12 ,"b.tech");   /* Insert data in table  */
-Insert into student values (2 , "azeem" , 13 ,"b.tech 1st year"); 
-
-update student                /* update column in a table  */
-set course ="bba"
-where rollno  =13;
-
-delete from student where id =2 ;           /* delete the data from table */
-drop table student;                     /* delete the whole table  */
-
-
-CREATE DATABASE harsh_company;
-USE harsh_company;
-
-CREATE TABLE employe(
-id INT PRIMARY KEY,
-name VARCHAR(50),
-salary INT
-);
-
-INSERT INTO employe 
-(id,name,salary)
+INSERT INTO student_2
+(Roll_no, Name, Age, Address, Date_Of_Birth, Contact_no)
 VALUES
-(1,"MOHD AZEEM",95000),
-(2,"MOHD QASIM",96000),
-(3,"MOHD KAIF",94000),
-(4,"MOHD SHAHZEB",98000);
-
-SELECT * FROM employe;
-
-CREATE TABLE TEMP1(
-id INT,
-name VARCHAR(50),
-AGE INT,
-city VARCHAR(50),
-PRIMARY KEY (id,name)  /* dono ka combination kabhi same nhi ho skta */
-);
-
-CREATE TABLE emp(
-id INT ,
-salary INT DEFAULT 25000
-);
-
-INSERT INTO emp(id) VALUES (101);
-SELECT * FROM emp;
-/* 
-Constraints
-CHECK -> column ki values pr limit laga deta hai.
-*/
-
-CREATE TABLE city(
-age INT CHECK (age >=18)
-);
-
-CREATE DATABASE university;
-USE university;
-
-CREATE TABLE student(
-roll_no INT PRIMARY KEY,
-name VARCHAR (50),
-marks INT NOT NULL,
-grade VARCHAR(1),
-city VARCHAR(20)
-);
-
-INSERT INTO student 
-(roll_nO,name ,marks,grade,city)
+(01, "Azeem", 20, "Amroha", "2003-04-12", 8287098601);
+INSERT INTO student_2
+(Roll_no, Name, Age, Address, Date_Of_Birth, Contact_no)
 VALUES
-(11,"MOHD KASIM",85,"B","AMROHA"),
-(12,"MOHD AZEEM",86,"B","RAJAKPUR"),
-(13,"MOHD KAIF",70,"B","AZAMPUR"),
-(14,"MOHD SHAHZEB",60,"B","DHANAURA"),
-(15,"MOHD SUHAIB",90,"B","CHANDPUR");
+(02, "Asim", 25, "Pakbada", "2004-05-13", 8287098600);
+INSERT INTO student_2
+(Roll_no, Name, Age, Address, Date_Of_Birth, Contact_no)
+VALUES
+(03, "Kasim", 24, "Amroha", "2005-05-15", 6398083537);
+INSERT INTO student_2
+(Roll_no, Name, Age, Address, Date_Of_Birth, Contact_no)
+VALUES
+(04, "Kaif", 23, "Rajakpur", "2006-06-16", 9568711709);
+INSERT INTO student_2
+(Roll_no, Name, Age, Address, Date_Of_Birth, Contact_no)
+VALUES
+(05, "suhaib", 21, "Rajakpur", "2007-07-17", 7253062912);
 
-SELECT * FROM student
+SELECT * FROM student_2;
 
+SELECT * FROM student_2 
 
+WHERE Address = "Amroha";
 
-UPDATE student SET grade = 'A' WHERE roll_no = 15;
-UPDATE student SET grade = 'D' WHERE roll_no = 14;
-UPDATE student SET grade = 'C' WHERE roll_no = 13;
+SELECT * FROM student_2 
 
-SELECT * FROM student;
-SELECT name,grade FROM student;
-SELECT DISTINCT grade FROM student;/* distinct keywords is used to find the data which is not repeated in that row*/
-SELECT * FROM student WHERE marks >=80; /* WHERE is used to find some condition */ 
-SELECT * FROM student WHERE marks+10 >100;/* yaha hum koi bhi arthmetic operators use kr skte hai*/
-SELECT * FROM student WHERE marks >=60 AND CITY = "amroha" OR city= "chandpur";
-SELECT * FROM student WHERE marks BETWEEN 70 AND 90;
-SELECT * FROM student WHERE city IN ("amroha","azampur");
-SELECT * FROM student WHERE city NOT IN ("amroha","azampur");
-SELECT * FROM student LIMIT 2;
-SELECT * FROM student ORDER BY city ASC;
-SELECT * FROM student ORDER BY marks DESC LIMIT 3;
+WHERE Roll_no = 3;
+
+ALTER TABLE student_2 ADD Year_Of_Addmission date;
+
+ALTER TABLE student_2 ADD Course char(20) default "BTECH(CS)";
+
+ALTER TABLE student_2 MODIFY Course varchar(20);
+
+ALTER TABLE student_2 drop column Year_Of_Addmission;
+
+UPDATE student_2 SET Address = "Noida", Contact_no = 9568756299 WHERE ROll_no = 1;
+
+UPDATE student_2 SET Name = "Shahzeb", Address = "Ghaziabad", Course = "BTECH(AI)" WHERE Roll_no = 4;
+
+DELETE FROM student_2 WHERE Roll_no = 5;
+
+DELETE FROM student_2 WHERE Roll_no = 4 and Address = "Ghaziabad";
+
+SELECT Roll_no , Name FROM student_2;
+
+desc student_2;
+
+select * from student_2;
