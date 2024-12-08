@@ -24,6 +24,48 @@ DBMS accepts the request from the application and provides specific data through
 DBMS contains the group of programs which acts according to the user instruction.
 It provides security to the database.
 
+################Key Features of DBMS
+Data modeling:
+Data storage and retrieval:
+Concurrency control: 
+Data integrity and security:
+Backup and recovery: 
+DBMS can be classified into two types:
+RDBMS:
+NoSQL:
+
+============Database Languages
+Data Definition Language
+Data Manipulation Language
+Data Control Language
+Transactional Control Language
+
+Data Definition Language (DDL)
+DDL is the short name for Data Definition Language, which deals with database schemas and descriptions, of how the data should reside in the database.
+CREATE:
+ALTER: 
+DROP:
+COMMENT: 
+RENAME:
+
+Data Manipulation Language (DML)
+ it is used to store, modify, retrieve, delete and update data in a database. Data query language(DQL) is the subset of “Data Manipulation Language”. The most common command of DQL is SELECT statement. SELECT statement help on retrieving the data from the table without changing anything in the table.
+
+SELECT: retrieve data from a database
+INSERT: insert data into a table
+UPDATE: updates existing data within a table
+DELETE: Delete all records from a database table
+MERGE: UPSERT operation (insert or update)
+CALL: call a PL/SQL or Java subprogram
+EXPLAIN PLAN: interpretation of the data access path
+LOCK TABLE: concurrency Control
+
+
+
+
+
+
+
 ###########Characteristics of DBMS
 DBMS contains automatic backup and recovery procedures.
 It contains ACID properties which maintain data in a healthy state in case of failure.
